@@ -24,7 +24,7 @@
 .navbar-mpicon {
   display: flex;
   justify-self: start;
-  height: 70px;
+  height: 90px;
   width: 150px;
 }
 
@@ -149,8 +149,8 @@
     position: relative;
 
     /* justify-self: start; */
-    height: 50px;
-    width: 115px;
+    height: 60px;
+    width: 100px;
     margin-left: -107px;
   }
   .navbar-logo {

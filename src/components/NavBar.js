@@ -3,7 +3,7 @@ import './NavBar.css';
 import {Link} from 'react-router-dom';
 //import Button from './Button.css'
 // import { Button } from './Button';
-import logomp from '../public1/images/pyme1.png';
+import logomp from '../public1/images/tools1.png';
 
 
 
@@ -28,7 +28,7 @@ function NavBar() {
        <>
        <nav className='navbar' >
            <div className='navbar-container'>
-           <img src= {logomp} className='navbar-mpicon'  alt='images/img-1.jpg'/>
+           <img src= {logomp} className='navbar-mpicon'  alt='images/img-1.jpg' />
                
                <Link to='/HOME' className='navbar-logo'onClick={closeMobilemenu}>
                    {/* Oil-now.com<i className='fab fa-typo3' ></i> */}
