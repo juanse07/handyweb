@@ -1,6 +1,6 @@
 import React from 'react'
-import { Nav,NavBarContainer, NavIcon, NavText1, NavText2,MobileIcon,NavMenu,NavItem,NavLinks,NavName } from './navbarelements'
-import icon from '../public1/images/tools1.png'
+import { Nav,NavBarContainer, NavIcon, NavText1, NavText2,MobileIcon,NavMenu,NavItem,NavLinks,NavName, Navbtn, NavbtnLink } from './navbarelements'
+import icon from '../public1/images/hummer1.png'
 import {FaBars} from 'react-icons/fa'
 
 
@@ -37,7 +37,15 @@ const NavBar2 = () => {
                             VACANTS
                         </NavLinks>       
                     </NavItem>
+                    <Navbtn>
+                    <NavbtnLink to='/signIn'>
+
+                        Sign In
+
+                    </NavbtnLink>
+                </Navbtn>
                 </NavMenu>
+              
                 <MobileIcon>
                     <FaBars/>
                 </MobileIcon>

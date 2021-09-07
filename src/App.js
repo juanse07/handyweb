@@ -6,10 +6,12 @@ import Products from './components/pages/Products';
 // import InfoSection from './components/InfoSection';
 import Home from './components/pages/Index';
 
+
 function App() {  
   return (
     <>
     <Router>
+     
       <Home/>
 
        

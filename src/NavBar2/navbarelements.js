@@ -3,11 +3,12 @@ import {Link as LinkRouter} from 'react-router-dom';
 import {Link as LinkScroll} from 'react-scroll';
 
 export const Nav= styled.nav`
-background: linear-gradient(
-    90deg,
-    rgb(153, 152, 152) 0%,
-    rgb(10, 10, 10) 100%
-  );
+background:#010606;
+// background: linear-gradient(
+//     90deg,
+//     rgb(153, 152, 152) 0%,
+//     rgb(10, 10, 10) 100%
+//   );
   height: 60px;
 //   margin-top:-80px;
   display: flex;
@@ -36,6 +37,7 @@ background: linear-gradient(
   export const NavText1= styled(LinkRouter)`
   color: #ffff;
   justify-self: start;
+  margin-left:20px;
   
   cursor: pointer;
   font-weight: bold;
@@ -43,6 +45,12 @@ background: linear-gradient(
   font-size: 2rem;
   display: flex;
   align-items: center;
+  @media screen and (max-width:768px){
+
+    margin-left:120px;
+  
+
+  }
 
   `
   export const NavText2= styled(LinkRouter)`
@@ -58,11 +66,19 @@ background: linear-gradient(
   `
 
   export const NavIcon= styled.img`
-  display: flex;
+  display: block;
+position:absolute;
   justify-self: start;
   align-items:center;
-  height: 90px;
-  width: 150px;
+  height: 45px;
+  width: 35px;
+
+  bottom:0.4rem;
+  left:1.2rem;
+  @media screen and (max-width:768px){
+    height: 45px;
+  width: 35px;
+  
 
 
   `
@@ -71,8 +87,8 @@ background: linear-gradient(
   @media screen and (max-width:768px){
       display: block;
       position:absolute;
-      top:0;
-      right:0;
+      top:1rem;
+      right:0.6rem;
       tranform: translate(-100%,60%);
       font-size: 1.8rem;
       cursor:pointer;
@@ -107,12 +123,45 @@ background: linear-gradient(
   &.active{
       border-bottom:3px solid #01bf71;
   }
-  `;
+  `
 
   export const NavName= styled.div`
   display:Flex;
   justify-self: start;
   align-items:center;
-  height:100%;`
+  height:100%;
+  `
+
+  export const Navbtn=styled.nav`
+  display:flex;
+  align-items:center
  
-  
+  @media screen and (max-width:768px){
+    display:none;
+}`
+ 
+ export const NavbtnLink= styled(LinkRouter) `
+ 
+ border-radius:50px;
+ background:#01bf71;
+ white-space:nowrap;
+ padding:10px 22px;
+ align-items:center;
+ justify-content:flex-start;
+ display:flex;
+ color:#010606;
+ font-size:15px;
+ outline:none;
+ border:none;
+ cursor:pointer;
+ transition: all 0.2s ease-in-out;
+ text-decoration:none;
+
+ &:hover{
+    transition: all 0.2s ease-in-out;
+    background:#fff;
+    color:#010606;
+ }
+ 
+ `
+
