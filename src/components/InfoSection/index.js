@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import { Button } from '../ButtonElement'
 import { Subtitle } from './InfoElement'
 import { Column2, Img, ImgWrap,InfoContainer,InfoWrapper,InfoRow,Column1,TextWrapper,TopLine,Heading,BtnWrap } from './InfoElement'
+import {Link} from 'react-router-dom';
 
 
 
@@ -17,9 +18,10 @@ const InfoSection=({LightBg,imgStart,topLine,LightText,darkText,HeadLine,descrip
                         <TopLine>{topLine}</TopLine>
                         <Heading LightText={LightText}>{HeadLine}</Heading>
                         <Subtitle darkText={darkText}>{description}</Subtitle>
+                       
                         <BtnWrap>
                             <Button 
-                            to="home"
+                            to="/signup"
                         smooth={true}
                         duration={500}
                         spy={true}
@@ -31,6 +33,7 @@ const InfoSection=({LightBg,imgStart,topLine,LightText,darkText,HeadLine,descrip
                                 {buttonLabel}
                             </Button>
                         </BtnWrap>
+                       
                     </TextWrapper>
                     </Column1>
                     <Column2>
