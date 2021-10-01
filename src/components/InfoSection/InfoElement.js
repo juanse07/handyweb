@@ -77,7 +77,7 @@ margin-bottom:35px;
 
 export const BtnWrap=styled.div`
 display:flex;
-justify-content:flex-start;
+justify-content:space-between;
 `;
 export const ImgWrap=styled.div`
 max-width=355px;
@@ -88,4 +88,31 @@ width:100%;
 margin:0 0 10px 0;
 
 padding-right:0;
+`;
+
+export const MobileIconSms= styled.div`
+margin-left:15px
+
+  display:flex;
+  justify-content:flex-start;
+    tranform: translate(-100%,60%);
+    font-size: 1.8rem;
+    cursor:pointer;
+    text-decoration:none
+    color:'#fff'
+    
+
+`;
+export const MobileIconemail= styled.div`
+margin-left:15px
+
+  display:flex;
+  justify-content:flex-start;
+    tranform: translate(-100%,60%);
+    font-size: 1.8rem;
+    cursor:pointer;
+    text-decoration:none
+    color:'#fff'
+    
+
 `;

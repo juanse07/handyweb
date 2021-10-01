@@ -7,15 +7,17 @@ import Products from './components/pages/Products';
 import Home from './components/pages/Index';
 
 import Fg from './components/FormGarden/Fg';
+import SideBar from './components/SideBar';
 
 
 function App() {  
   return (
     <>
     <Router>
-     
-      {/* <Home/> */}
+
+ <SideBar/>
       <Switch>
+
       {<Route path='/' exact component={Home} /> }
 
       <Route path='/signup' component={Fg} />
