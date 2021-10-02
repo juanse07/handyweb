@@ -4,7 +4,7 @@ import icon from '../public1/images/hummer1.png'
 import {FaBars} from 'react-icons/fa'
 
 
-const NavBar2 = () => {
+const NavBar2 = ({toggle}) => {
     return (
         <>
         <Nav>
@@ -46,7 +46,7 @@ const NavBar2 = () => {
                 </Navbtn>
                 </NavMenu>
               
-                <MobileIcon>
+                <MobileIcon onClick={toggle}>
                     <FaBars/>
                 </MobileIcon>
             </NavBarContainer>

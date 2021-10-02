@@ -99,7 +99,7 @@ margin-left:15px
     font-size: 1.8rem;
     cursor:pointer;
     text-decoration:none
-    color:'#fff'
+    color:#fff
     
 
 `;
@@ -112,7 +112,7 @@ margin-left:15px
     font-size: 1.8rem;
     cursor:pointer;
     text-decoration:none
-    color:'#fff'
+    color:#fff
     
 
 `;
