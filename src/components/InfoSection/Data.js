@@ -12,7 +12,7 @@ export const homeObjOne={
     buttonLabel:'Learn More',
     
     imgStart:false,
-    img: require('../../public1/images/oil man.svg').default,
+    img: require('../../public1/images/mecanica.svg').default,
     alt:'Car',
     dark:true,
     primary:true,
