@@ -6,6 +6,7 @@ import Products from './components/pages/Products';
 // import InfoSection from './components/InfoSection';
 import Home from './components/pages/Index';
 import React,{useState} from 'react'
+import Pagoform from './components/PagosSection/index';
 
 import Fg from './components/FormGarden/Fg';
 import NavBar2 from './NavBar2';
@@ -27,7 +28,7 @@ function App() {
 
       {<Route path='/' exact component={Home} /> }
 
-      <Route path='/signup' component={Fg} />
+      <Route path='/signup' component={Pagoform} />
       </Switch>
 
        

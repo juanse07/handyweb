@@ -1,16 +1,52 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { Button } from '../ButtonElement'
 import { MobileIconemail, MobileIconSms, Subtitle } from './InfoElement'
 import { Column2, Img, ImgWrap,InfoContainer,InfoWrapper,InfoRow,Column1,TextWrapper,TopLine,Heading,BtnWrap } from './InfoElement'
 import {Link} from 'react-router-dom';
 import { MobileIcon } from '../../NavBar2/navbarelements';
-import { FaSms } from 'react-icons/fa'
+import { FaProductHunt, FaSms } from 'react-icons/fa'
 import { FiMail } from 'react-icons/fi'
+import StripeCheckout from 'react-stripe-checkout';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements,CardElement } from '@stripe/react-stripe-js';
+import {handleSubmit} from'./index'
 
 
 
 
-const InfoSection=({LightBg,imgStart,topLine,LightText,darkText,HeadLine,description,buttonLabel,img,alt,primary,dark,dark2})=> {
+
+
+const InfoSection=({LightBg,imgStart,topLine,LightText,darkText,HeadLine,description,buttonLabel,img,alt,primary,dark,dark2,handleSubmit})=> {
+   
+    // const [product, setproduct]=useState({
+    //     Name: "Deluxe cleaning service",
+    //     price:175,
+    //     ServiceBy: "HandyJuanServices"
+
+    // })
+    // const makePayment= token =>{
+    //     const body={
+    //         token,product
+    //     }
+    //     const headers={
+    //         "Content-type":"application/json"
+    //     }
+    //     return fetch(`https://web-1-bd9f8.web.app/payment`,{
+    //         method:"POST",
+    //         headers,
+    //         body:JSON.stringify(body)
+
+
+    //     }).then(response=>{
+    //         console.log("RESPONSE",response)
+    //         const{status}=response;
+    //         console.log("STATUS",status)
+    //     }).catch(error=>console.log(error))
+    //     // return fetch(`https://web-1-bd9f8.web.app/payment`)
+   
+  
+    // }
+    
     return (
         <>
         <InfoContainer LightBg={LightBg}>
@@ -21,8 +57,12 @@ const InfoSection=({LightBg,imgStart,topLine,LightText,darkText,HeadLine,descrip
                         <TopLine>{topLine}</TopLine>
                         <Heading LightText={LightText}>{HeadLine}</Heading>
                         <Subtitle darkText={darkText}>{description}</Subtitle>
-                        
-                       
+                      
+                      
+                         {/* <StripeCheckout 
+                        stripeKey='pk_test_51Ji1ywFheOTrxlzRdfq9JLuaWFLqUSr0cLPR1QerlF5ZqlELJ52ap72s9HprUGXnJKHbwWRNPNMI3N2uPgIyrQWP00r8PxU9uc'
+                         token={makePayment} 
+                          >   */}
                        
                         <BtnWrap>
                             <Button 
@@ -62,6 +102,10 @@ const InfoSection=({LightBg,imgStart,topLine,LightText,darkText,HeadLine,descrip
 
                            
                         </BtnWrap>
+                        
+
+                         {/* </StripeCheckout >   */}
+                       
                        
                     </TextWrapper>
                    
