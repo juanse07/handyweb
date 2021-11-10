@@ -1,77 +1,248 @@
-import React,{useState,useEffect} from 'react'
-import { loadStripe } from '@stripe/stripe-js';
-import {Elements,CardElement,useStripe,useElements } from '@stripe/react-stripe-js';
-import axios from 'axios';
+
+
 
 // import PagoForm2 from'./Pagoform'
 
 
-const PagoForm=()=>{
-   
-
-    const CheckOutForm=()=>{
-    
-        const stripe=useStripe();
         
-        const elements=useElements();
-        const handleSubmit= async(e)=>{
-    
-            e.preventDefault();
-            const {error,paymentMethod}=await stripe.createPaymentMethod({
-                type:"card",
-                card:elements.getElement(CardElement)
-    
-            });
+//     const elements=useElements();
 
-            if(!error){
-            
-                const { id }=paymentMethod;
-            //   const {data}=  await axios.post('http://Localhost:3000/signup/payment',{
-                const {data}=  await axios.post('https://web-1-bd9f8.web.app/signup/payment',{
-                    id,
-                    amount:10000
-                });
-                console.log(data)
-            }
-           
-        };
-        return(
-            <form  onSubmit={handleSubmit}>
-            <CardElement/>
-            <button  type='submit'  onClick={handleSubmit}>
-                Buy
-            </button>
-        </form>
 
-        );
+import { useState } from "react";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import styled from "styled-components";
+import axios from "axios";
 
+import Row from "./prebuilt/Row";
+import BillingDetailsFields from "./prebuilt/BillingDetailsFields";
+import SubmitButton from "./prebuilt/SubmitButton";
+import CheckoutError from "./prebuilt/CheckoutError";
+import Stripe from "stripe";
+import { StripeContainer, StripeRow,StripeWrapper,Columnstripe1,Columnstripe2,BtnWrap,ImgWrap,Img,CardElementContainer } from "./disenoformulariostripe";
+import img1 from "/../Proyectos React/temp_services/tempser/src/public1/images/payment1.svg"
+
+
+
+const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
+  const [isProcessing, setProcessingTo] = useState(false);
+  const [checkoutError, setCheckoutError] = useState();
+
+  const stripe = useStripe();
+  const elements = useElements();
+
+  // TIP
+  // use the cardElements onChange prop to add a handler
+  // for setting any errors:
+
+  const handleCardDetailsChange = ev => {
+    ev.error ? setCheckoutError(ev.error.message) : setCheckoutError();
+  };
+
+  const handleFormSubmit = async ev => {
+    ev.preventDefault();
+
+    const billingDetails = {
+      name: ev.target.name.value,
+      email: ev.target.email.value,
+      address: {
+        city: ev.target.city.value,
+        line1: ev.target.address.value,
+        state: ev.target.state.value,
+        postal_code: ev.target.zip.value
+      }
     };
 
-    const stripePromise=loadStripe("pk_test_51Ji1ywFheOTrxlzRdfq9JLuaWFLqUSr0cLPR1QerlF5ZqlELJ52ap72s9HprUGXnJKHbwWRNPNMI3N2uPgIyrQWP00r8PxU9uc")
-        
-   return(
+    setProcessingTo(true);
 
-    <Elements  stripe={stripePromise}>
+    const cardElement = elements.getElement("card");
+ 
 
-        <CheckOutForm></CheckOutForm>
-
-    
-      
-  
    
+     
 
-    </Elements>
+      const paymentMethodReq = await stripe.createPaymentMethod({
+        type: "card",
+        card: cardElement,
+        billing_details: billingDetails
+        
+      });
+      const id= paymentMethodReq.paymentMethod.id
+
+        console.log("payw:",id);
+
+      try {
+        // const { data} = await axios.post("http://localhost:3001/payment", {
+          const { data} = await axios.post(" https://us-central1-web-1-bd9f8.cloudfunctions.net/app/api/payment", {
+         
+
+
+          id,
+          amount: price * 100,
+          
+          
+          
+        });
+
+         console.log("paymentid:",data);
+
+
+
+      if (paymentMethodReq.error) {
+        setCheckoutError(paymentMethodReq.error.message);
+        setProcessingTo(false);
+        return;
+      }
+
+     
+
+        
+      
+     
+
+
     
+
+      // const { error,confirmacion } = await  stripe.confirmCardPayment(clientSecret, {
+      //   payment_method: paymentMethodReq.paymentMethod.id
+      // });
+
+     
+
+      // if (error) {
+      //   setCheckoutError(error.message);
+      //   setProcessingTo(false);
+      //   return;
+      // }
+
+      onSuccessfulCheckout();
+    } catch (err) {
+      setCheckoutError(err.message);
+    }
+  };
+
+  // Learning
+  // A common ask/bug that users run into is:
+  // How do you change the color of the card element input text?
+  // How do you change the font-size of the card element input text?
+  // How do you change the placeholder color?
+  // The answer to all of the above is to use the `style` option.
+  // It's common to hear users confused why the card element appears impervious
+  // to all their styles. No matter what classes they add to the parent element
+  // nothing within the card element seems to change. The reason for this is that
+  // the card element is housed within an iframe and:
+  // > styles do not cascade from a parent window down into its iframes
+
+  const iframeStyles = {
+    base: {
+      color: "#828282",
+      fontSize: "16px",
+      iconColor: "#828282",
+      "::placeholder": {
+        color: "#05bf71"
+      }
+    },
+    invalid: {
+      iconColor: "#ff0000",
+      color: "#ff0000"
+    },
+    complete: {
+      iconColor: "#05bf71"
+    }
+  };
+
+  const cardElementOpts = {
+    iconStyle: "solid",
+    style: iframeStyles,
+    hidePostalCode: true
+  };
+
+  return (
+    <>
+    <StripeContainer >
+     
+        <StripeWrapper>
+            <StripeRow >
+                <Columnstripe1>
+                <form onSubmit={handleFormSubmit}>
+
+                <BillingDetailsFields />
+               
+               
+                <Row>
+                <CardElementContainer>
+           <CardElement
+             options={cardElementOpts}
+             onChange={handleCardDetailsChange}
+           />
+         </CardElementContainer>
+
+         </Row>
+         {checkoutError && <CheckoutError>{checkoutError}</CheckoutError>}
+
+                
+
+                
+
+               
+                  
+                  
+                   
+                    <BtnWrap>
+                        <SubmitButton
+                       
+                       disabled={isProcessing || !stripe}>
+
+              {isProcessing ? "Processing..." : `Pay $${price}`}
+                        </SubmitButton>
+           
+                    
+
+                       
+                    </BtnWrap>
+
+
+                    
+                    
+
+                  
+                   
+                   
+                
+               </form>
+                </Columnstripe1>
+                <Columnstripe2>
+                <ImgWrap>
+                <Img src={img1} alt="" height='300' width='180'/>
+                </ImgWrap>
+               
+                </Columnstripe2>
+            </StripeRow>
+        </StripeWrapper>
+    </StripeContainer>
     
-    
-   );
-    
-}
+        
+    </>
+    // <form onSubmit={handleFormSubmit}>
+    //   <Row>
+    //     <BillingDetailsFields />
+    //   </Row>
+    //   <Row>
+    //     <CardElementContainer>
+    //       <CardElement
+    //         options={cardElementOpts}
+    //         onChange={handleCardDetailsChange}
+    //       />
+    //     </CardElementContainer>
+    //   </Row>
+    //   {checkoutError && <CheckoutError>{checkoutError}</CheckoutError>}
+    //   <Row>
+    //     {/* TIP always disable your submit button while processing payments */}
+    //     <SubmitButton disabled={isProcessing || !stripe}>
+    //       {isProcessing ? "Processing..." : `Pay $${price}`}
+    //     </SubmitButton>
+    //   </Row>
+    // </form>
+  );
+};
 
-
-
-  
-
-
-
-export default PagoForm;
+export default CheckoutForm;

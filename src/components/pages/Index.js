@@ -4,7 +4,7 @@ import NavBar2 from '../../NavBar2/index';
 import SideBar from '../SideBar/index';
 
 import InfoSection from '../InfoSection/index';
-import { homeObjOne, homeObjTwo,homeObjThree } from '../InfoSection/Data';
+import { homeObjOne, homeObjTwo,homeObjThree,homeObjFour } from '../InfoSection/Data';
 
 
 const Home=()=>{
@@ -26,6 +26,7 @@ return(
     <InfoSection {...homeObjOne}/>
     <InfoSection {...homeObjTwo}/>
     <InfoSection {...homeObjThree}/>
+    <InfoSection {...homeObjFour}/>
     </>
 );
 

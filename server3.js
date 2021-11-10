@@ -1,39 +1,38 @@
-const cors= require("cors");
-const express= require("express");
-const Stripe=require("stripe");
-const app=express();
+// const cors= require("cors");
+// const express= require("express");
+// const stripe=require("stripe")("sk_test_51Ji1ywFheOTrxlzRIzM58XIn4qLGa1LtPO336FQlvjF4ledmznhGQqirlMxcf8WmDG9GUm5hIyHNyR5plbCSRlYf00VVlaW7bY");
+// const app=express();
+// app.use(cors({origin: "http://localhost:3000"}));
+// app.use(express.json());
 
-const PORT= process.env.PORT||4000;
-
-// app.use(cors({origin:'http://Localhost:3000'}))
-app.use(cors({origin:'https://web-1-bd9f8.web.app'}))
-
-app.use(express.json())
-const stripe= new Stripe(process.env.REACT_APP_KEY1); 
+// // const PORT= process.env.PORT||4242;
 
 
-app.post('/signup/payment',async (req,res)=>{
-    try {
-        const{id,amount}=req.body
+// // app.use(cors({origin: "https://us-central1-web-1-bd9f8.cloudfunctions.net/app"}));
 
-    const payment= await stripe.paymentIntents.create({
-        amount:amount,
-        currency: 'usd',
-        description:"Pago de Prueba",
-        payment_method:id,
-        confirm:true
-    });
-    console.log(payment)
-    console.log(req.body)
-    res.send({
-        clientSecret: payment.client_secret
-      });
-        
-    } catch (error) {
-        console.log(error,"Hubo un error")
-        res.json({message:error})
-    };
-    
-}
-    )
-app.listen(PORT,()=>console.log("Listening at port 8000"));
+
+// // app.use(express.bodyParser());
+
+// app.post("/payment", async (req, res) => {
+//   // const stripe= new Stripe(process.env.REACT_APP_KEY1);
+//   try {
+//     const {amount,id}=req.body;
+//     const payment= await stripe.paymentIntents.create({
+//       amount,
+//       currency: "usd",
+//       description: "Pago de ejemplo rosado",
+//       payment_method:id,
+//        confirm: true,
+//     });
+//     console.log(payment);
+//     console.log(req.body);
+//     res.json({message: "Yes I love you"} );
+//   } catch (error) {
+//     console.log(error, "Hubo un error");
+//     res.json({message: error});
+//   }
+// });
+
+// app.listen(3001,()=>console.log("Listening at port 3001"));
+
+

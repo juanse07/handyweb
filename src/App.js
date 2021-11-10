@@ -1,4 +1,5 @@
 // import logo from './logo.svg';
+
 import './App.css';
 // import NavBar from './components/NavBar';
 import {BrowserRouter as Router,Switch, Route} from 'react-router-dom';
@@ -6,11 +7,13 @@ import Products from './components/pages/Products';
 // import InfoSection from './components/InfoSection';
 import Home from './components/pages/Index';
 import React,{useState} from 'react'
-import Pagoform from './components/PagosSection/index';
+// import CheckoutForm from './components/PagosSection/index';
+import MainPage from './components/PagosSection/mainpage';
 
 import Fg from './components/FormGarden/Fg';
 import NavBar2 from './NavBar2';
 import SideBar from './components/SideBar';
+
  
 
 
@@ -28,7 +31,8 @@ function App() {
 
       {<Route path='/' exact component={Home} /> }
 
-      <Route path='/signup' component={Pagoform} />
+      <Route path='/checkout'
+       component={MainPage} />
       </Switch>
 
        

@@ -1,28 +1,32 @@
-const stripe = require('stripe')('pk_test_51Ji1ywFheOTrxlzRdfq9JLuaWFLqUSr0cLPR1QerlF5ZqlELJ52ap72s9HprUGXnJKHbwWRNPNMI3N2uPgIyrQWP00r8PxU9uc');
-const express = require('express');
-const app = express();
-app.use(express.static('public'));
+// const functions = require("firebase-functions");
+// const cors= require("cors");
+// const express= require("express");
+// const Stripe=require("stripe");
+// const app=express();
 
-const YOUR_DOMAIN = 'http://localhost:3000/checkout';
+// // app.use(cors({origin: "http://Localhost:3000"}));
+// app.use(cors({origin: "https://us-central1-web-1-bd9f8.cloudfunctions.net/app"}));
 
-app.post('/create-checkout-session', async (req, res) => {
-  const session = await stripe.checkout.sessions.create({
-    line_items: [
-      {
-        // TODO: replace this with the `price` of the product you want to sell
-        price: '{{PRICE_ID}}',
-        quantity: 1,
-      },
-    ],
-    payment_method_types: [
-      'card',
-    ],
-    mode: 'payment',
-    success_url: `${YOUR_DOMAIN}?success=true`,
-    cancel_url: `${YOUR_DOMAIN}?canceled=true`,
-  });
+// app.use(express.json());
 
-  res.redirect(303, session.url)
-});
+// app.post("/paymentIntent", async (req, res) => {
+//   const stripe= new Stripe(process.env.REACT_APP_KEY1);
+//   try {
+//     const {id, amount}=req.body;
+//     const payment= await stripe.paymentIntents.create({
+//       amount,
+//       currency: "usd",
+//       description: "Pago de Prueba",
+//       payment_method: id,
+//       confirm: true,
+//     });
+//     console.log(payment);
+//     console.log(req.body);
+//     res.json({message: "Yes I love you"} );
+//   } catch (error) {
+//     console.log(error, "Hubo un error");
+//     res.json({message: error});
+//   }
+// });
 
-app.listen(4242, () => console.log('Running on port 4242'));
+// exports.app = functions.https.onRequest(app);

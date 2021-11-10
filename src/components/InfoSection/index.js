@@ -66,7 +66,7 @@ const InfoSection=({LightBg,imgStart,topLine,LightText,darkText,HeadLine,descrip
                        
                         <BtnWrap>
                             <Button 
-                            to="/signup"
+                            to="/checkout"
                         smooth={true}
                         duration={500}
                         spy={true}
