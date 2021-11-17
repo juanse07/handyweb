@@ -23,10 +23,13 @@ import img1 from "/../Proyectos React/temp_services/tempser/src/public1/images/p
 
 
 
-const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
+const CheckoutForm = ({LightBg,imgStart,topLine,LightText,darkText,HeadLine,description,buttonLabel,img,alt,primary,dark,dark2,serviceRate,handleSubmit, price, onSuccessfulCheckout }) => {
   const [isProcessing, setProcessingTo] = useState(false);
   const [checkoutError, setCheckoutError] = useState();
 
+  
+  //  price=1;
+  
   const stripe = useStripe();
   const elements = useElements();
 
@@ -73,11 +76,14 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       try {
         // const { data} = await axios.post("http://localhost:3001/payment", {
           const { data} = await axios.post(" https://us-central1-web-1-bd9f8.cloudfunctions.net/app/api/payment", {
+            // const { data} = await axios.post(" https://www.thehandyjuan.com/api/payment", {
          
 
 
           id,
-          amount: price * 100,
+          // amount: price * 100,
+          amount: serviceRate * 100,
+          
           
           
           
@@ -192,7 +198,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
                        
                        disabled={isProcessing || !stripe}>
 
-              {isProcessing ? "Processing..." : `Pay $${price}`}
+              {isProcessing ? "Processing..." : `Pay $${serviceRate}`}
                         </SubmitButton>
            
                     

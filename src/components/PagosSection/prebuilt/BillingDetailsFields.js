@@ -36,8 +36,23 @@ const BillingDetailsFields = () => {
         placeholder="1234 Cherry Berry St."
         required
       />
+      <FormField
+        name="state"
+        label="State"
+        type="text"
+        placeholder="Colorado"
+        required
+      />
+      <FormField
+        name="city"
+        label="City"
+        type="text"
+        placeholder="Littleton"
+        required>
+        </FormField>
 
-<FormFieldSelectst
+
+{/* <FormFieldSelectst
         name="state"
         label="State"
         type="text"
@@ -50,7 +65,7 @@ const BillingDetailsFields = () => {
         type="text"
         placeholder="Littleton"
         required>
-        </FormFieldSelect>
+        </FormFieldSelect> */}
       
       
       

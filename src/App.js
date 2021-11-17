@@ -9,6 +9,7 @@ import Home from './components/pages/Index';
 import React,{useState} from 'react'
 // import CheckoutForm from './components/PagosSection/index';
 import MainPage from './components/PagosSection/mainpage';
+import Cart from './components/Cartspot/index';
 
 import Fg from './components/FormGarden/Fg';
 import NavBar2 from './NavBar2';
@@ -33,6 +34,9 @@ function App() {
 
       <Route path='/checkout'
        component={MainPage} />
+       <Route path='/select_service'
+       component={Cart} />
+       
       </Switch>
 
        

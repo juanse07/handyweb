@@ -5,7 +5,8 @@ const express= require("express");
 const stripe=require("stripe")("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");
 const app=express();
 // app.use(cors({origin: "http://localhost:3000"}));
-app.use(cors({origin: "https://web-1-bd9f8.web.app"}));
+// app.use(cors({origin: "https://web-1-bd9f8.web.app"}));
+app.use(cors({origin: "https://thehandyjuan.com"}));
 app.use(express.json());
 
 // const PORT= process.env.PORT||4242;

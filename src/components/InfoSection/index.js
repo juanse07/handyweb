@@ -16,7 +16,7 @@ import {handleSubmit} from'./index'
 
 
 
-const InfoSection=({LightBg,imgStart,topLine,LightText,darkText,HeadLine,description,buttonLabel,img,alt,primary,dark,dark2,handleSubmit})=> {
+const InfoSection=({LightBg,imgStart,topLine,LightText,darkText,HeadLine,description,buttonLabel,img,alt,primary,dark,dark2,serviceRate,linkconexion,handleSubmit})=> {
    
     // const [product, setproduct]=useState({
     //     Name: "Deluxe cleaning service",
@@ -66,7 +66,8 @@ const InfoSection=({LightBg,imgStart,topLine,LightText,darkText,HeadLine,descrip
                        
                         <BtnWrap>
                             <Button 
-                            to="/checkout"
+                            to={linkconexion}
+                        state={serviceRate}
                         smooth={true}
                         duration={500}
                         spy={true}
@@ -75,7 +76,7 @@ const InfoSection=({LightBg,imgStart,topLine,LightText,darkText,HeadLine,descrip
                         primary={primary ? 1:0}
                         dark={dark? 1:0}
                         dark2={dark2?1:0}>
-                                {buttonLabel}
+                                {buttonLabel}{" from: $  " }{serviceRate}
                             </Button>
 
                             <MobileIconSms>
