@@ -41,16 +41,19 @@ const IncrementButton = styled(Button)`
   border-radius: 0 4px 4px 0;
 `;
 
-const DonutQuantity = ({ onAdd, onRemove, quantity }) => {
+const TimeQuantity = ({ onAdd, onRemove, quantity,onAdd2, onRemove2, quantity2 }) => {
   return (
     <>
       <DecrementButton onClick={onRemove}>–</DecrementButton>
       <Input type="text" value={quantity} readOnly />
       <IncrementButton onClick={onAdd}>+</IncrementButton>
+      <DecrementButton onClick={onRemove2}>–</DecrementButton>
+      <Input type="text" value={quantity2} readOnly />
+      <IncrementButton onClick={onAdd2}>+</IncrementButton>
     </>
   );
 };
 
 
 
-export default DonutQuantity;
+export default TimeQuantity;

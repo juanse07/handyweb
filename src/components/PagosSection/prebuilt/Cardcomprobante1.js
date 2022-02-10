@@ -3,14 +3,11 @@ import React, {useState} from "react";
 import Select from 'react-select';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Row from './Row' 
-import { register } from "react-scroll/modules/mixins/scroller";
 
-const Handlecampo=(event)=>{
-  const [value,setvalue]=useState('');
-  setvalue(event.target.value);
+
+
 
   
-}
 
 const FormFieldContainer = styled.div`
   display: -ms-flexbox;
@@ -30,51 +27,66 @@ const FormFieldContainer = styled.div`
 `;
 
 const Label = styled.label`
-  width: 10%;
+  width: 35%;
   margin-left:10px;
-  min-width: 70px;
-  padding: 11px 0;
-  color:#000000;
+  min-width: 30px;
+  padding: 4px 0;
+  color:#d58b07;
   overflow: hidden;
   font-size: 16px;
   text-overflow: ellipsis;
   white-space: nowrap;
   font-weight: bold;
-  
-
-`;
-
-const Input = styled.input`
-  font-size: 16px;
- 
-  width: 100%;
-  padding: 8px 15px 8px 15px;
-  border-radius: 4px;
-  color: #e1e1e1;
-  background-color: transparent;
-  border:0.1px solid
-  animation: 1ms void-animation-out;
-  &::placeholder {
-    color: #828282;
-  }
   @media screen and(max-width:480px){
+
+    font-size: 9x;
+    
     
   
   }
+  
+
 `;
 
-const FormField = ({ label, type, name, placeholder, required, refer }) => {
+const Datapago = styled.h1`
+width: 65%;
+margin-left:10px;
+
+min-width: 30px;
+padding: 8px 0;
+color:#000000;
+overflow: hidden;
+font-size: 16px;
+text-overflow: ellipsis;
+white-space: nowrap;
+@media screen and(max-width:480px){
+
+  font-size: 9px;
+  
+  
+
+}
+
+`;
+
+const Cardcomprobante1 = ({ label, type, name, placeholder, required,value }) => {
+
+ 
  
   return (
     <FormFieldContainer>
       
       <Label htmlFor={name}>{label}</Label>
-      <Row>
-      <Input name={name} type={type} placeholder={placeholder} required onChange={Handlecampo} ref={refer}/>
-      </Row>
+      
+      <Datapago>
+       {/* {numDonuts1} {email1}  {numDonuts2}  {name1} {lname1} {address1} {phone1} */}
+       {value}
+        
+      </Datapago>
+      
       
     </FormFieldContainer>
   );
 };
 
-export default FormField;
+export default Cardcomprobante1;

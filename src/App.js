@@ -20,6 +20,7 @@ import SideBar from './components/SideBar';
 
 function App() { 
   const [isOpen,setIsOpen]=useState(false);
+  const [UserInfo,updateUserInfo]=useState({})
   const toggle=()=>   setIsOpen(!isOpen); 
   return (
     <>

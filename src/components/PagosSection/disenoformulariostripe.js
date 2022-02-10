@@ -19,7 +19,7 @@ export const StripeContainer=styled.div`
 color:#f1f1f1;
 background: '#010606';
 @media screen and (max-width: 768px){
-    padding:35px 0
+    padding:0px 0
 }
 `
 
@@ -31,8 +31,13 @@ width:100%
 max-width:1100px;
 margin-right:auto;
 margin-left:auto;
-padding:0 24px;
-justify-content:center`;
+padding:50px 24px;
+
+justify-content:center
+@media screen and (max-width:768px){
+  padding:10px 12px;
+}
+`;
 
 export const StripeRow= styled.div`
 display:grid;
@@ -92,6 +97,8 @@ margin-bottom:35px;
 export const BtnWrap=styled.div`
 display:flex;
 justify-content:space-between;
+margin-top:30px;
+margin-botton:10px
 `;
 export const ImgWrap=styled.div`
 max-width=355px;

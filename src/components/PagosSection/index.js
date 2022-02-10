@@ -14,7 +14,9 @@ import styled from "styled-components";
 import axios from "axios";
 
 import Row from "./prebuilt/Row";
+import Rowgold from "./prebuilt/Rowgold";
 import BillingDetailsFields from "./prebuilt/BillingDetailsFields";
+import Cardcomprobantepago from "./prebuilt/Cardcomprobantepago";
 import SubmitButton from "./prebuilt/SubmitButton";
 import CheckoutError from "./prebuilt/CheckoutError";
 import Stripe from "stripe";
@@ -161,6 +163,7 @@ const CheckoutForm = ({LightBg,imgStart,topLine,LightText,darkText,HeadLine,desc
     style: iframeStyles,
     hidePostalCode: true
   };
+  
 
   return (
     <>
@@ -169,6 +172,11 @@ const CheckoutForm = ({LightBg,imgStart,topLine,LightText,darkText,HeadLine,desc
         <StripeWrapper>
             <StripeRow >
                 <Columnstripe1>
+                <Rowgold>
+                  <Cardcomprobantepago></Cardcomprobantepago>
+                  <p>data1</p>
+                  
+                </Rowgold>
                 <form onSubmit={handleFormSubmit}>
 
                 <BillingDetailsFields />
@@ -193,18 +201,7 @@ const CheckoutForm = ({LightBg,imgStart,topLine,LightText,darkText,HeadLine,desc
                   
                   
                    
-                    <BtnWrap>
-                        <SubmitButton
-                       
-                       disabled={isProcessing || !stripe}>
-
-              {isProcessing ? "Processing..." : `Pay $${serviceRate}`}
-                        </SubmitButton>
-           
-                    
-
-                       
-                    </BtnWrap>
+                   
 
 
                     
@@ -220,6 +217,18 @@ const CheckoutForm = ({LightBg,imgStart,topLine,LightText,darkText,HeadLine,desc
                 <ImgWrap>
                 <Img src={img1} alt="" height='300' width='180'/>
                 </ImgWrap>
+                <BtnWrap>
+                        <SubmitButton
+                       
+                       disabled={isProcessing || !stripe}>
+
+              {isProcessing ? "Processing..." : `Pay $${serviceRate}`}
+                        </SubmitButton>
+           
+                    
+
+                       
+                    </BtnWrap>
                
                 </Columnstripe2>
             </StripeRow>
