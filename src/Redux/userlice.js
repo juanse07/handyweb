@@ -11,6 +11,10 @@ export const userSlice=createSlice({
         numDonuts:1,
         numDonuts2:1,
         date1:"000000",
+        pricecleaning:0.50,
+        pricelandscaping:0.60,
+        pricehandy:0.30,
+        pricecarfix:0.40,
         
     },
    
@@ -26,6 +30,7 @@ export const userSlice=createSlice({
             state.numDonuts2=action.payload.numDonuts2;
             state.numDonuts3=action.payload.numDonuts3 ;
             state.numDonuts4=action.payload.numDonuts4 ;
+
            
             
         },
@@ -36,7 +41,12 @@ export const userSlice=createSlice({
             state.date1=action.payload.date1;
         
         },
-       
+        addprice:(state,action)=>{
+            state.pricecleaning=action.payload.pricecleaning;
+            state.pricelandscaping=action.payload.pricecleaning;
+            state.pricehandy=action.payload.pricehandy;
+            state.pricecarfix=action.payload.pricecarfix;
+        }       
 
         
     },

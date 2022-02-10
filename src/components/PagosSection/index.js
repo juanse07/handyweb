@@ -191,24 +191,7 @@ const CheckoutForm = ({LightBg,imgStart,topLine,LightText,darkText,HeadLine,desc
          </CardElementContainer>
 
          </Row>
-         {checkoutError && <CheckoutError>{checkoutError}</CheckoutError>}
-
-                
-
-                
-
-               
-                  
-                  
-                   
-                   
-
-
-                    
-                    
-
-                  
-                   
+         {/* {checkoutError && <CheckoutError>{checkoutError}</CheckoutError>}             */}
                    
                 
                </form>

@@ -22,6 +22,7 @@ function App() {
   const [isOpen,setIsOpen]=useState(false);
   const [UserInfo,updateUserInfo]=useState({})
   const toggle=()=>   setIsOpen(!isOpen); 
+  // console.log(process.env.REACT_APP_KEY1)
   return (
     <>
     <Router>

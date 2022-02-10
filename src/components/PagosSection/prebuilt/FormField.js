@@ -5,12 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Row from './Row' 
 import { register } from "react-scroll/modules/mixins/scroller";
 
-const Handlecampo=(event)=>{
-  const [value,setvalue]=useState('');
-  setvalue(event.target.value);
-
-  
-}
 
 const FormFieldContainer = styled.div`
   display: -ms-flexbox;
@@ -70,7 +64,7 @@ const FormField = ({ label, type, name, placeholder, required, refer }) => {
       
       <Label htmlFor={name}>{label}</Label>
       <Row>
-      <Input name={name} type={type} placeholder={placeholder} required onChange={Handlecampo} ref={refer}/>
+      <Input name={name} type={type} placeholder={placeholder}  ref={refer}/>
       </Row>
       
     </FormFieldContainer>

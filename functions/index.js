@@ -2,7 +2,7 @@ const functions = require("firebase-functions");
 const cors= require("cors");
 const express= require("express");
 // eslint-disable-next-line max-len
-const stripe=require("stripe")("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");
+const stripe=require("stripe")(process.env.REACT_APP_KEY1);
 const app=express();
 // app.use(cors({origin: "http://localhost:3000"}));
 // app.use(cors({origin: "https://web-1-bd9f8.web.app"}));
